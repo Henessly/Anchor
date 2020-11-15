@@ -1,0 +1,6 @@
+name: Anchor
+version: ${project.version}
+main: dev.henessly.anchor.Anchor
+api-version: 1.16
+authors: [ Henessly ]
+description: sleep plugin.

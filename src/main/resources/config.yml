@@ -1,0 +1,8 @@
+#############################
+# Anchor Plugin Config File #
+#      Henessly - 2020      #
+#############################
+
+# Integer used to calculate what percent of players is needed to skip night.
+# Default is 3
+divisor: 3
