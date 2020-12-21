@@ -34,15 +34,15 @@ public final class SleepListener implements Listener {
       playersSleeping.add(player);
       final Server server = anchor.getServer();
       final int playersNeeded = server.getOnlinePlayers().size() / divisor;
-      final int sleepingSize = playersSleeping.size();
-      if (sleepingSize >= playersNeeded) {
+      if (playersSleeping.size() >= playersNeeded) {
         server.broadcastMessage(ChatColor.GREEN + "Skipping to day!");
         server.getScheduler().runTask(anchor, () -> {
-          final World  world = anchor.getServer().getWorld(player.getWorld().getUID());
+          final World world = anchor.getServer().getWorld(player.getWorld().getUID());
           if (world != null) {
             world.setTime(1000L);
             world.setStorm(false);
             world.setThundering(false);
+            playersSleeping.clear();
           }
         });
       } else {
@@ -53,6 +53,6 @@ public final class SleepListener implements Listener {
 
   @EventHandler
   public final void onSleepLeave(final PlayerBedLeaveEvent event) {
-    playersSleeping.remove(event.getPlayer()); // Removes player from set
+    playersSleeping.remove(event.getPlayer());
   }
 }
